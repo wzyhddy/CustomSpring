@@ -14,6 +14,10 @@ public class TestVehicle {
         VehicleProxyProvider vehicleProxyProvider = new VehicleProxyProvider(vehicle);
         Vehicle proxy = vehicleProxyProvider.getProxy();
         System.out.println(proxy.getClass());
+        String result = proxy.fly(100);
+        System.out.println("result = " + result);
+
+        //所以当执行run方法时会执行到代理对象的invoke
         proxy.run();
     }
 }

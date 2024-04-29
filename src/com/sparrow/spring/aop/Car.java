@@ -10,4 +10,9 @@ public class Car implements Vehicle{
     public void run() {
         System.out.println("汽车在路上running");
     }
+
+    @Override
+    public String fly(int height) {
+        return "小汽车在飞行高度=" + height;
+    }
 }

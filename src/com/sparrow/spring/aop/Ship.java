@@ -11,4 +11,10 @@ public class Ship implements Vehicle {
     public void run() {
         System.out.println("轮船在海上running...");
     }
+
+    @Override
+    public String fly(int height) {
+        System.out.println("飞船在飞行高度=" + height );
+        return "飞船在飞行高度=" + height;
+    }
 }
