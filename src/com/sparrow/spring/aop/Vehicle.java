@@ -7,4 +7,6 @@ package com.sparrow.spring.aop;
  **/
 public interface Vehicle {
     void run();
+
+    String fly(int height);
 }

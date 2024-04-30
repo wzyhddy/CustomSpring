@@ -20,4 +20,13 @@ public class TestVehicle {
         //所以当执行run方法时会执行到代理对象的invoke
         proxy.run();
     }
+
+    @Test
+    public void proxySmartAnimal() {
+        SmartAnimal smartAnimal = new A();
+        SmartAnimalProvider provider = new SmartAnimalProvider(smartAnimal);
+        SmartAnimal target_animal = provider.getTarget_animal();
+        double sum = target_animal.getSum(10.0, 2.0);
+        System.out.println(sum);
+    }
 }

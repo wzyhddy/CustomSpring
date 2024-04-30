@@ -54,6 +54,7 @@ public class VehicleProxyProvider {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 System.out.println("交通工具开始运行了...");
                 //反射基础 通过方法反向调用对象
+                //public abstract void com.sparrow.spring.aop.Vehicle.run()
                 Object result = method.invoke(target_vehicle, args);
                 System.out.println("交通工具停止运行了....");
                 return result;
