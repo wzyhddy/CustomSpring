@@ -1,5 +1,7 @@
 package com.sparrow.spring.aop.proxy;
 
+import org.junit.Test;
+
 /**
  * @Author: 诉衷情の麻雀
  * @Description: TODO
@@ -7,4 +9,12 @@ package com.sparrow.spring.aop.proxy;
  **/
 public class AopTest {
 
+    @Test
+    public void TestProxy() {
+        SmartAnimal smartAnimal = new SmartDog();
+        MyProxyProvider proxyProvider = new MyProxyProvider(smartAnimal);
+        SmartAnimal proxy = proxyProvider.getProxy();
+        proxy.getSum(10, 6);
+
+    }
 }

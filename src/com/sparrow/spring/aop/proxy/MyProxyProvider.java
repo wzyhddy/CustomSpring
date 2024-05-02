@@ -1,5 +1,5 @@
 package com.sparrow.spring.aop.proxy;
-import com.sparrow.spring.aop.SmartAnimal;
+import com.sparrow.spring.aop.proxy.SmartAnimal;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -19,14 +19,6 @@ public class MyProxyProvider {
 
 
     //目标对象执行前的方法
-    public void before(Object proxy, Method method, Object[] args) {
-        System.out.println("方法执行前-日志-方法名-" + method.getName() + "-参数-" + Arrays.asList(args));
-    }
-
-    public void after(Method method, Object[] args) {
-        System.out.println("方法正常结束-日志-方法名-" + method.getName() + "-参数-" + Arrays.asList(args));
-
-    }
     public SmartAnimal getProxy() {
         ClassLoader classLoader = target_obj.getClass().getClassLoader();
         Class<?>[] interfaces = target_obj.getClass().getInterfaces();
@@ -36,9 +28,9 @@ public class MyProxyProvider {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 try {
-                    before(proxy, method, args);
+                    SpaAOP.before(proxy, method, args);
                     result = method.invoke(target_obj, args);
-                    after(method, args);
+                    SpaAOP.after(method, args);
                     return result;
                 } catch (Exception e) {
                     e.printStackTrace();
